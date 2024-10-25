@@ -16,6 +16,9 @@ export const authOptions: NextAuthOptions = {
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         })
     ],
+    session: {
+        strategy: 'database'
+    },
     callbacks: {
         session: async ({ session, user }) => {
             if (session.user) {
