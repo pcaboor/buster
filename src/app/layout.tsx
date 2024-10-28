@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import SessionWrapper from "../../lib/sessionWrapper";
+import SessionWrapper from "../lib/sessionWrapper";
 import { ThemeProvider } from "@/components/themes/theme-providers";
+import { RootProvider } from 'fumadocs-ui/provider';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -37,7 +38,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SessionWrapper>
-            {children}
+            <RootProvider>
+              {children}
+            </RootProvider>
           </SessionWrapper>
         </ThemeProvider>
       </body>

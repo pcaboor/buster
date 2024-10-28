@@ -29,7 +29,8 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
-import SignOutButton from "@/app/components/signOutButton"
+import SignOutButton from "@/components/signOutButton"
+import Link from "next/link"
 
 export function NavUser({
   user,
@@ -41,6 +42,8 @@ export function NavUser({
   }
 }) {
   const { isMobile } = useSidebar()
+
+  console.log(user.avatar)
 
   return (
     <SidebarMenu>
@@ -82,9 +85,11 @@ export function NavUser({
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
+              <DropdownMenuItem >
+
                 <Sparkles />
                 Upgrade to Pro
+
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />

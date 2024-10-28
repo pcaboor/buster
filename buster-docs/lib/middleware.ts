@@ -1,7 +1,7 @@
 // middleware.ts
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { prisma } from '../lib/db'
+import { prisma } from './db'
 
 export async function middleware(request: NextRequest) {
     // Récupérer le token de session depuis le cookie `next-auth.session-token`
